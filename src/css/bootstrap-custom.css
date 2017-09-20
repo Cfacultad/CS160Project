@@ -1,0 +1,26 @@
+.navbar {
+  margin-bottom: 0px;
+}
+
+h3.text-center {
+  margin-top: 35px;
+  margin-bottom: 25px;
+}
+
+.navbar-toggle:hover{
+  /*background-color: turquoise !important;*/
+  color: white;
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.navbar-toggle {
+  -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    background-color: #DDDDDD/*#BBBFCC;*/
+}
+
+.navbar-toggle {
+    margin-top:5px;
+    margin-bottom:5px;
+}

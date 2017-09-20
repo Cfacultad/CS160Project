@@ -1,0 +1,67 @@
+p.tab {
+    text-indent: 30px;
+}
+
+p.tab2 {
+    text-indent: 20px;
+}
+
+h4.tab {
+  text-indent: 12px;
+}
+
+h5 {
+    margin-top: 40px;
+}
+
+html {
+
+  /*background-color: #aaeeff;*/
+
+  /*height:100%;
+  background-image: url("/src/pics/CIMG8680.JPG");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto 150%;
+  background-attachment: fixed;*/
+
+}
+
+.navbar-toggle {
+  /*background-color: #c3d5db;*/
+  /*background-color: #bab9ca;*/
+  background-color: #aaaaaa;
+  /*border-width: 5px;
+  border-style: solid white;*/
+  /*border: 1px solid red;*/
+}
+
+/*.center-column {
+  background-color: rgba(255, 255, 255, 0.7);
+}*/
+
+#mainCSS {
+  /*height:100%;
+  background-image: url("/src/pics/CIMG8680.JPG");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: auto 150%;
+  background-attachment: fixed;*/
+}
+
+.colorTest {
+  color: blue;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.colorBlack{
+  /*color: #223333;*/
+  color: black;
+}
+
+.leftPadding{
+  padding-left: 30px;
+}
