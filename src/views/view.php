@@ -44,12 +44,10 @@ abstract class View
       <!-- Controllers -->
       <script src="/src/js/controllers/MainController.js"></script>
       <script src="/src/js/controllers/HomeController.js"></script>
-      <script src="/src/js/controllers/AboutController.js"></script>
-      <script src="/src/js/controllers/StevenHomannController.js"></script>
-      <script src="/src/js/controllers/AdamHomannController.js"></script>
-      <script src="/src/js/controllers/TheresaHomannController.js"></script>
-      <script src="/src/js/controllers/NewsController.js"></script>
       <script src="/src/js/controllers/NavController.js"></script>
+      <script src="/src/js/controllers/ShopController.js"></script>
+      <script src="/src/js/controllers/ShoppingCartController.js"></script>
+      <script src="/src/js/controllers/CheckOutController.js"></script>
       <!-- The next two lines closes out the divs from the constructor -->
       </div>
       <div class='col-xs-1'></div>

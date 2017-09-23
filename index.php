@@ -21,8 +21,16 @@
     $controller->mainControl($config);
   }
 
+  elseif ($_SERVER['REQUEST_URI'] == '/database') {
+    foreach ($_POST as $key => $value)
+    {
+      echo $key . ': ' . $value . PHP_EOL;
+      echo "This is being sent from the server" . PHP_EOL;
+    }
+  }
+
   else {
     header("Location: /");
   }
-  
+
 ?>

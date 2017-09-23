@@ -1,0 +1,9 @@
+RewriteEngine on
+
+RewriteRule ^about$ index.php [L]
+RewriteRule ^adamhomann$ index.php [L]
+RewriteRule ^stevenhomann$ index.php [L]
+RewriteRule ^news$ index.php [L]
+#RewriteRule ^.*$ index.php [L]
+RewriteRule ^database$ index.php [L]
+ErrorDocument 404 /index.php

@@ -16,13 +16,8 @@ class HomeView extends View {
  */
     public function render() {
     ?>
-    <div ng-controller="HomeController" ng-style="centerColumnStyle">
-      <!-- <h1>Welcome to Homann Associates Inc. <small class="colorBlack">(A California Corporation)</small></h1> -->
-      <h1 class="colorBlack">Welcome to Organic Food Store</h1>
-      <h4 class="colorBlack tab">A California Corporation</h4>
-      <p class="colorBlack">{{views}} views so far</p>
-    </div>
-    </p>
+    <div ng-view></div>
+
     <?php
     $this->close();
    }

@@ -15,7 +15,7 @@ class HomeController extends Controller {
    */
   function mainControl($config) {
     $homeModel = new M\HomeModel();
-    $data['views'] = $homeModel->getData($config, "home"); // we will fix the hard coded "ofs" later, I believe $config['database'] should be it
+    $data['views'] = $homeModel->getData($config, "home");
     $data['config'] = $config;
     $data['title'] = "Organic Food Store"; // This is nothing important, in fact probably not used, but once we are coding on the client side, we can use this as a test to see if the array was passed correctly into AngularJS
     $data['message'] = "Welcome to Oraganic Food Store"; // Also a testing index

@@ -1,0 +1,132 @@
+This will be a rundown of how everything works. I will try to make things as unambiguous and thorough as possible. I will try to emphasize things in layman’s terms and go into depth were need be.
+
+First thing to say is that besides this document, you will want help from online. And I can think of only a few other places that come close to having such a vast amount of information on web programming. If you want help with AngularJS, just do a Google search of AngularJS w3schools. If you want CSS help just do a Google search of CSS w3schools. Do the same for JavaScript, MySQL, Bootstrap, HTML, PHP, and jQuery. The w3 in the name is derived from World Wide Web.
+
+Here is the structure of how web requests and responses work:
+When you visit amazon.com for example, you are viewing their website on a browser. That browser runs/interprets all the javascript and puts the html and css where it is told to so that the end result is amazon’s webpage. This webpage could be a single page application or a multipage application, or a hybrid of both. Single page means that all the web pages of amazon are loaded initially such that if you go to another page within amazon such as their check out page, rather than sending a request to the server/backend for that page, the browser would have already loaded this page and kept it “hidden” in the background. Why is this good? Because instead of waiting for both the response from the server and the loading of the content resulting in a flicker or a white page for a second or two (or however long it takes for all the content to completely load), the transition from one page to the next within the same site is continuous rather than choppy. A single page application would have that page with all that large amount of data already loaded initially hidden in the background until it is told to become visible by the browser resulting in a smooth and continuous flow from one web page to the next within the same website. How do single page applications do this magic? It is with the help of the ‘#’ symbol in the url. Take a look at this example:
+	
+	Normal url used in multipage applications:
+	www.example.com/about
+	
+	Hash-based url used in single page applications:
+	www.example.com/#/about
+
+	Hashbang-based url also used in new versions of single page applications:
+	www.example.com/#!/about
+
+These urls are either hash-based urls (/#/) or hashbang-based urls (/#!/), compared to the normal urls we are used to seeing. Here is a good read for exactly what goes on, please read at least half of it, it is 100% relevant even though we aren’t using React:
+	http://singlepageapplication.com/react-app-url-schemes-part-1/
+  
+Another good read is:
+	https://neoteric.eu/single-page-application-vs-multiple-page-application
+
+Now that you understand SPA vs MPA (single page application vs multipage application), 
+lets move onto what a web server is.
+
+All websites are run on a computer, that computer we call a web server or server for short. Any computer can be used as a web server. Even your computer that you are reading this on can be used as a web server as long as it is a MAC, Linux based, or Windows computer. You have to download Apache or any other server and you have to see if there is a version of Apache for your computer. More on this later. The reason you would not want to run a website on your personal computer is because in order for your website to be up and running 24/7, you would have to have your computer on and staying at home 24/7. This is because it has to stay connected with the public IP address that your home modem was assigned by Comcast or AT&T or whoever your service provider is. Therefore it is better to use a separate computer for this, one that has none of your personal data on it, and that does not have a screen/GUI since that takes up a lot of energy and ends up costing you a lot more in the long run. An example of a simple server would be a Raspberry Pi. It has no GUI and is really cheap ($80). In order to run this server from your home you must do a thing called port forwarding. You port forward port 80 of your computer to your wifi router (not your modem but your router). Look this up if you are interested, but it is somewhat irrelevant in terms of this project.
+
+Before I talk about Apache and PHP, I must re-emphasize one quick thing that I mentioned first in this document about the front end and what a browser is. A browser such as Chrome or Safari or Firefox, you can think of it as an interpreter that only understands JavaScript, in fact that is basically what it is. Amazon.com is requested by the user, and the response from Amazon’s server is a bunch of JavaScript that must be interpreted and ran, and well this is what the browser is for — it runs the JavaScript code that was sent from the backend/server, and this JavaScript code is what we call the frontend code of the website. Of course the browser understands HTML and CSS too.
+
+Now onto what Apache is on the back end and what PHP or any scripting language Apache recognizes allows for us to do.
+
+Apache handles the networking side of everything. Apache is not the only type of server out there, here is a wiki on all the servers out there: 
+	https://en.wikipedia.org/wiki/Comparison_of_web_server_software
+But we programmers do not worry about Apache or the actual server program for it is only a listener that listens for requests and pipes (don’t fully know what pipe means) the sections of this requests into PHP data structures for us backend programmers to use with ease (for example you want to get the host in the request? Use this in PHP: $_SERVER['HTTP_HOST']). And when the backend sends the response, Apache takes what is to be sent back to the client and sends it in the correct way. This is where http (Hypertext Transfer Protocol) comes into play. Browsers and Apache must have a protocol to send all this information, and they send it via HTTP. Here is an example HTTP:
+
+Client/Browser Request
+	GET /docs/index.html HTTP/1.1
+	Host: www.nowhere123.com
+	Accept: image/gif, image/jpeg, */*
+	Accept-Language: en-us
+	Accept-Encoding: gzip, deflate
+	User-Agent: Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)
+	(blank line)
+
+Server Response
+	HTTP/1.1 200 OK
+	Date: Sun, 18 Oct 2009 08:56:53 GMT
+	Server: Apache/2.2.14 (Win32)
+	Last-Modified: Sat, 20 Nov 2004 07:16:26 GMT
+	ETag: "10000000565a5-2c-3e94b66c2e680"
+	Accept-Ranges: bytes
+	Content-Length: 44
+	Connection: close
+	Content-Type: text/html
+	X-Pad: avoid browser bug
+  
+	<html><body><h1>It works!</h1></body></html> 
+
+Source: https://www.ntu.edu.sg/home/ehchua/programming/webprogramming/HTTP_Basics.html
+
+So a request from the client or a response from the server must be put into this layout in order for the browser or Apache to be able to read it and make sense of it. The client can make I believe up to 7 types of requests and they are: GET, POST, HEAD, PUT, DELETE, OPTIONS, CONNECT. The only two that we will really ever work with are GET and POST. In fact, I have never used any of the others, I can’t say I have done a whole lot of web programming, but I’ve done enough to say that the other 5 just aren’t used all that much. A link to read more on this is: 
+	https://www.w3schools.com/TagS/ref_httpmethods.asp
+Which brings me to re-emphasize: w3schools is the place to get all the information you could ever ask for when it comes to web programming. They describe things simply and in ways that are easy to understand. They even provide samples for you to run and see what they just taught you in action. Please see up top for more about w3schools.com. 
+
+So how are these requests and responses sent to the correct location? It is done so by public IP addresses. There are private ip addresses and that is for all devices that belong to a single public ip address, and this is why you must port forward if you want to run server from home, you must port forward your private port 80 to public port of your public ip address via your router. Anyways, there are two types of public ip addresses: static and dynamic. Static ip address for example 20.40.153.12 will always stay the same. Dynamic ip address will switch out one ip for another and will do so randomly. Most always your home ip address will be a dynamic ip, and most always a web server will belong to a static ip address. This is where running a server from your home can be a problem. You assign your domain name say www.basschimes.com. Well in a month or maybe in only a few days, your home modem will be assigned a different ip address and now your www.basschimes.com is pointing to some other dynamic ip address. It will never point to Google’s ip address for example because most likely Google used a static ip address. To go to google you can type in 
+	http://172.217.6.78
+This will take you to goole. This is because there are DNS Servers that take the DNS google.com and see that it is associated with the address of 172.217.6.78. Then it now knows what place to go to. The “host” in this request still stays “google.com” even though it is now 172.217.6.78. This is important because if you want to run multiple websites from your computer at home, all you have to do is check whether the host is basechimes.com or adamhomann.com (let’s say you own both those domain names) and handle the request accordingly using a simple PHP if statement
+	if (strpos($host, 'adamhomann.com') !== false) {
+		require_once “./adamhomann_website/index.php";
+	}
+	else {
+		require_once “./basschimes_website/index.php";
+	}
+
+Now there is a special kind of DNS that can point to a dynamic ip address, and these are called Dynamic Domain Name System or Dynamic DNS or DDNS for short. But it isn’t always possible to point a DDNS to a DNS. No-ip is a company that allows you to make a DDNS. Now hosting companies such as 1&1 and GoDaddy.com might not let you connect your host name with your DDNS name. I know for sure 1&1 does not let you do this, and so I have to point adamhomann.com to my dynamic ip address rather than my DDNS which is
+	http://homann.mynetgear.com
+So when my dynamic ip address is switched for another, my site will crash, and so I have to always be ready for that crash. I am currently having to figure out how I can change this.
+
+Now you know about IP addresses, browsers and what they do, http requests and responses, w3shools, apache, port forwarding, DNS, DDNS, DNS Servers, single page applications vs multipage applications (SPA vs MPA). Let’s move onto a few last things before I get to the code. Let’s talk about URLs and GET vs POST requests and what and AJAX request is.
+So a URL is a path through the folder structure, but a URL that looks like this
+	www.adamhomann.com/about
+is much cleaner than
+	www.adamhomann.com/src/views/about.php
+So we use something called the .htaccess file located in the root directory of our website to alias from the long URL to a short URL. Also, the .htaccess file allows for any unknown request such as www.adamhomann.com/junkandnonsense41234 or www.adamhomann.com/qpwonwel23423ksafn that would give a 404 error to send the user instead of the 404 error, they are sent to the home page using this:
+	ErrorDocument 404 /index.php
+where within the index.php file you have an if else statement, where the else is for all unknown requests and so therefore do this:
+	header("Location: /");
+where hopefully one of your if else statements before the else is:
+	if ($_SERVER['REQUEST_URI'] == '/') {
+		send home page
+	}
+
+You can use the .htaccess file for other things such as preventing a file type from being viewable from the client side. So if you have a txt document or a config file that contains important information for only the server side, then you might want to consider moving outside the root directory or if that is not an option, then you can use the .htaccess file to deny access to it from the client side.
+
+Now you can do either a GET request or a POST request, a GET request requests data from the server, and a POST request submits data to the server. When you want to “get” another page, you use GET, but his refreshes the page unless you use the ‘#’ as mentioned above with SPA. Anyways, you can include variables in this GET request, but since this is a URL, all these variable are shown. An example of this is:
+	https://www.fandango.com/transaction/ticketing/redvines/ticketboxoffice.aspx?row_count=2553707866&mid=145763&tid=AAUJF&wssaffid=11836&wssac=123
+Where everything after the question mark are variables. This is not good for sending information that you wish to keep safe and secure since the data is in the URL request itself. So you can use a POST to send the data to the server with more security, but of course there is still much to do. There is one pattern call the POST-Redirect_GET pattern which allows users to send the data, and then a redirect is called with a GET request so that a form cannot be resubmitted in error. Look this up if you are interested. Especially if you are doing the backend, the PRG pattern will be useful for making transactions.
+
+JSON vs XML. I do not fully understand XML and so I will let you figure that out, but it is basically a way for you to make your own version of HTML tags. So instead of <div> you can do <adam> or something like that. JSON is where it’s at. JSON stands for JavaScript Object Notation. An example of JSON is:
+
+        {
+            "title": "Person",
+            "type": "object",
+            "properties": {
+                "firstName": {
+                    "type": "string"
+                },
+                "lastName": {
+                    "type": "string"
+                },
+                "age": {
+                    "description": "Age in years",
+                    "type": "integer",
+                    "minimum": 0
+                }
+            },
+            "required": ["firstName", "lastName"]
+        }
+
+
+
+
+
+
+Lets move on to folder structure and types of files you will see and what those files do.
+
+talk about JSON vs XML
+
+Talk about using an API and how the client cannot make a request from outside the server, otherwise it will result in a Cross-Site Request access denied due to Same Origin Policy. 
+
+same origin error stackoverflow
+https://stackoverflow.com/questions/14667189/simple-example-for-why-same-origin-policy-is-needed

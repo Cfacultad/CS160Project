@@ -1,14 +1,14 @@
-app.controller('HomeController', ['$scope', 'data', function($scope, data) {
+app.controller('ShopController', ['$scope', 'data', function($scope, data) {
 	$scope.title = data.title;
   $scope.message = data.message;
   $scope.views = data.views;
 	$scope.iframeHeight = window.innerHeight;
 
-	$scope.centerColumnStyle = {
+	$scope.shopStyle = {
 		"margin-top" : "40px"
   };
 
-	$("#home").click(function(e) {
+	$("#shop").click(function(e) {
     e.preventDefault();
     $.ajax({
         type: "POST",

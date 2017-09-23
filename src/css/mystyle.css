@@ -6,13 +6,13 @@ p.tab2 {
     text-indent: 20px;
 }
 
-h4.tab {
+h4.tab, h5.tab {
   text-indent: 12px;
 }
 
-h5 {
+/*h5 {
     margin-top: 40px;
-}
+}*/
 
 html {
 

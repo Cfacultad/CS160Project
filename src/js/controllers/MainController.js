@@ -22,12 +22,16 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
 		$scope.bootstrapCenterColumnStyle["background-color"] = "rgba(255, 255, 255, 0.7)";
 	}
 
-  $scope.backgroundStyle = {
-    background : "url('/src/pics/CIMG8680.JPG')",
-    "background-position" : "top",
-    "background-repeat" : "no-repeat",
-    "background-attachment" : "fixed"
-  };
+	$scope.backgroundStyle = {
+		"background-color" : "#c3f5f5"
+	};
+
+  // $scope.backgroundStyle = {
+  //   background : "url('/src/pics/CIMG8680.JPG')",
+  //   "background-position" : "top",
+  //   "background-repeat" : "no-repeat",
+  //   "background-attachment" : "fixed"
+  // };
 
 	$scope.initializeWindowSize = function() {
 		$scope.windowHeight = $window.innerHeight;
@@ -85,9 +89,9 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
 // add (key, value) to JSON object $scope.backgroundStyle based on device window
 	if($scope.degrees == null){
 		if (window.screen.width / window.screen.height <= 4/3) { //vertical fill till no white //so if screen was a square for example, the width will be filled, but the height won't so fill the height, and let the width be filled automatically
-			$scope.backgroundStyle["background-size"] = "auto " + window.screen.height - 100 + "px";
+			// $scope.backgroundStyle["background-size"] = "auto " + window.screen.height - 100 + "px";
 		} else { // horizontal fill till no white
-			$scope.backgroundStyle["background-size"] = window.screen.width + "px" + " auto";
+			// $scope.backgroundStyle["background-size"] = window.screen.width + "px" + " auto";
 		}
 	}
 
@@ -101,16 +105,16 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
 		//$scope.browserHeight = $window.innerHeight; //does change based on orientation unlike window.screen.height which stays constant
 		if($scope.degrees == 90 || $scope.degrees == -90){
 			if (window.screen.height / window.screen.width <= 4/3) { //vertical fill till no white //window.screen.height is actually the width now so window.screen.height by window.screen.width is the width by height. //yes height of screen is now the width since it is in 90 degree orientation or landscape orientation
-		    $scope.backgroundStyle["background-size"] =  "auto " + window.screen.width + "px"; // therefore fill the width of screen which is the height in this orientation, and let the width be filled automatically.
+		    // $scope.backgroundStyle["background-size"] =  "auto " + window.screen.width + "px"; // therefore fill the width of screen which is the height in this orientation, and let the width be filled automatically.
 		  } else { // horizontal fill till no white //this is what the iPhone and most devices will have
-		    $scope.backgroundStyle["background-size"] = window.screen.height + "px" + " auto";
+		    // $scope.backgroundStyle["background-size"] = window.screen.height + "px" + " auto";
 		  }
 		}
 		else if ($scope.degrees == 0){
 			if (window.screen.width / window.screen.height <= 4/3) { //vertical fill till no white //iPhone is in portrait mode.
-				$scope.backgroundStyle["background-size"] = "auto " + window.screen.height + "px";
+				// $scope.backgroundStyle["background-size"] = "auto " + window.screen.height + "px";
 			} else { // horizontal fill till no white
-				$scope.backgroundStyle["background-size"] = window.screen.width + "px" + " auto";
+				// $scope.backgroundStyle["background-size"] = window.screen.width + "px" + " auto";
 			}
 		}
   }, true);
