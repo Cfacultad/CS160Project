@@ -128,6 +128,41 @@ JSON vs XML. I do not fully understand XML and so I will let you figure that out
 
 Lets move on to folder structure and types of files you will see and what those files do.
 
+In the root directory of CS160Project, you’ll see there is a hidden file (file containing only the extension) called “.htaccess” and this file is closely tied with Apache so don’t worry too much about it, but I had to create this file and put the code in there. This file allows for url aliasing, and also handles 404 (Page not found) errors by taking them and rerouting them to home. So for example, lets say someone writes in organicfoodstore.com/about, we want it to go to the about page. Lets say though that the user slips and types in organicfoodstore.com/whljsun… this would result in a 404 page not found error, which means we should reroute it and any non existing requested page to home. The .htaccess file does this. By the way, when you do this in the future on your own web server, you will have to not only create the .htaccess file, but also allow for RewriteEngine on by going into Apache config and entering about 4 lines of code. Here is a web page talking about this for MAMP, on Linux machines such as my Raspberry Pi I think the conf file was elsewhere so definitely do a quick search such as “MAMP OS X mod rewrite .htaccess file”, or “MAMP Linux mod rewrite .htaccess file”, or “Apache Linux mod rewrite .htaccess file” but here is the idea of what you need to do:
+	https://stackoverflow.com/questions/7670561/how-to-get-htaccess-to-work-on-mamp
+again its only a few lines of code, but it is crucial.
+
+Ok so you see an index.php file. This is where we check to see which url was entered. The request goes through our .htaccess file first, and then goes to index.php. Then the correct instance is made in the index.php by making a controller object, which then creates a model and view object. This is then sent to the front end with all the correct files which is then interpreted by the browser that the client is using.
+
+If you have a look in the src folder, you will see there are seven folders: 
+	1) configs (where our database “config” and “make” file will be) 
+	2) controllers (where our back end controllers will be)
+	3) css (gets sent to the front end, this file contains a css file for general purposes as well as a css file for overwriting bootstrap styling. We will try to use Angular styling as much as possible for now, but if needs be we can always do css stuff here)
+	4) js (all our javascript files that contain our app.php notice it is a php file and not a js, this is because we pass in our php data from our database in this file! Also, you notice that it is where we set up the angular global app variable which allows for the whole angular system to work and for our single page application page routes. So this is a very important page. Also within this folder are two folders, partials and front end Angular Controllers. The html files for each page of the single page application are in partials folder.)
+	5) models (back end database connection to MySQL)
+	6) pics (where we will store any pictures for our website)
+	7) views (where our back end initiates a view. Yes, most views will be all done from the frontend, but the backend might have times where it needs to send views that are not part of our single page application, and this is where you would put those views. For example the post redirect get patter, I believe this folder will be good for that redirect, or maybe not but its up to you guys.)
+
+
+Now let me give you some examples of how to code in this project. Let’s say you want to add an AngularJS controller called CheckOutController.js. You would do so by first making a js file in the src/js/controllers folder and call it CheckOutController. Then you need to go to src/views/view.php and towards the bottom you will add another 
+	<script src="/src/js/controllers/CheckOutController.js"></script>
+And then finally make sure you attach your controller to a view/route, and you do so by two ways: on the app.php page you can add a controller by doing the following:
+	
+	.when("/checkOut", {
+        	templateUrl : "src/js/partials/checkOut.html",
+        	controller : "CheckOutController"
+    	})
+
+and the other way of adding a controller is doing this in a div:
+	<div ng-controller=‘CheckOutController’>
+		
+Notice that in the app.js, I gave my app the name ‘myApp’. So you connect the html up to the AngularJS app by doing the following in a div or even the <body> tag:
+	<body ng-app='myApp' ng-controller='MainController' ng-style="backgroundStyle" ng-cloak>
+
+Now you can add a controller on the same line, but not outside of this tag, that would result in an error. The ng-style written in the same controller can be applied to the same line as well. ng-cloak supposedly prevents flicker while the html is being loaded.
+
+
+
 talk about JSON vs XML
 
 Talk about using an API and how the client cannot make a request from outside the server, otherwise it will result in a Cross-Site Request access denied due to Same Origin Policy. 
