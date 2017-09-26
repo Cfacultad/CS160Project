@@ -6,44 +6,25 @@ app.config(function($routeProvider, $locationProvider) {
 
     $routeProvider
     .when("/", {
-        templateUrl : "src/js/partials/home.html"
+        templateUrl : "src/js/partials/home.html",
+        controller : "HomeController"
     })
     .when("/shop", {
-        templateUrl : "src/js/partials/shop.html"
+        templateUrl : "src/js/partials/shop.html",
+        controller : "ShopController"
     })
     .when("/shoppingCart", {
-        templateUrl : "src/js/partials/shoppingCart.html"
+        templateUrl : "src/js/partials/shoppingCart.html",
+        controller : "ShoppingCartController"
     })
     .when("/checkOut", {
-        templateUrl : "src/js/partials/checkOut.html"
+        templateUrl : "src/js/partials/checkOut.html",
+        controller : "CheckOutController"
     })
     .otherwise({
-        redirectTo: '/home'
+        redirectTo: '/'
     });
 });
-
-// app.config(['$routeProvider', '$locationProvider', function config($routeProvider, $locationProvider) {
-//     $locationProvider.hashPrefix('')
-//     $routeProvider
-//     .when("/", {
-//         templateUrl : "src/js/partials/home.html"
-//     })
-//     .when("/shop", {
-//         templateUrl : "shop.html"
-//     })
-//     .when("/shoppingCart", {
-//         templateUrl : "shoppingCart.html"
-//     })
-//     .when("/checkOut", {
-//         templateUrl : "checkOut.html"
-//     })
-//     .otherwise({
-//         redirectTo: '/home'
-//     });
-// }]);
-
-
-
 
 app.value('data', <?php echo json_encode($this->data); ?>);
 app.directive('resizable', function($window) {
@@ -60,14 +41,4 @@ app.directive('resizable', function($window) {
         }
       });
 
-// app.config(['$locationProvider', '$httpProvider', function($locationProvider, $httpProvider) {
-//     $locationProvider.html5Mode({
-//       enabled: true,
-//       requireBase: true
-//     });
-//     // $locationProvider.html5Mode(true);
-//     //$httpProvider.defaults.withCredentials = true; // once requests are working, delete this and in app.config too, until it works keep this
-// }]);
-
-//console.log(obj);
 </script>

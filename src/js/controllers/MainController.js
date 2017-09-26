@@ -14,13 +14,17 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
     "-webkit-overflow-scrolling" : "touch"
   };
 
-	//if home page, then have a clear background, otherwise fill center column with a bit of white.
-	if($location.path() === "/"){
-		$scope.bootstrapCenterColumnStyle["background-color"] = "rgba(255, 255, 255, 0.0)";
+	$scope.fillBackgroundWithOpaqueWhite = function() {
+		//if home page, then have a clear background, otherwise fill center column with a bit of white.
+		if($location.path() === "/"){
+			$scope.bootstrapCenterColumnStyle["background-color"] = "rgba(255, 255, 255, 0.0)";
+		}
+		else{
+			$scope.bootstrapCenterColumnStyle["background-color"] = "rgba(255, 255, 255, 0.7)";
+		}
 	}
-	else{
-		$scope.bootstrapCenterColumnStyle["background-color"] = "rgba(255, 255, 255, 0.7)";
-	}
+	$scope.fillBackgroundWithOpaqueWhite();
+
 
 	$scope.backgroundStyle = {
 		"background-color" : "#c3f5f5"
@@ -54,30 +58,6 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
 			$scope.bootstrapCenterColumnStyle["height"] = $window.innerHeight - navbarHeight + "px";
 		}
 	};
-
-		//------------------------------------------------------------------------------
-		//this is if you want the desktops to be free to zoom but not iphone, it works great but zooming in on an iphone looks nice so let's do the other way
-	// 	if($scope.degrees != null){
-	// 		document.addEventListener('gesturestart', function (e) {
-	// 			e.preventDefault();
-	// 	});
-	// 	}
-	//
-	// 	if($scope.degrees == 90 || $scope.degrees == -90){
-	// 		$scope.bootstrapCenterColumnStyle["height"] = $window.innerHeight - 52 + "px";//window.screen.width - 52 + "px";
-	// 		// $scope.theDegree = 70;
-	// 	}
-	// 	else if($scope.degrees == 0){
-	// 		$scope.bootstrapCenterColumnStyle["height"] = $window.innerHeight - 52 + "px";//$window.screen.height - 200 + "px";//starwhale
-	// 		//$scope.browserHeight = $window.innerHeight + "px";
-	// 		// $scope.theDegree = 90;
-	// 	}
-	// 	else{
-	// 		$scope.bootstrapCenterColumnStyle["height"] = $window.innerHeight - 52 + "px";
-	// 	}
-	// 	// $scope.degrees = 10; // wont' change on desktop, give it a different name and it will effect that var.
-	// };
-	//------------------------------------------------------------------------------
 
 	angular.element($window).bind("resize", function() {
 		$scope.initializeWindowSize();
