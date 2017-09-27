@@ -17,7 +17,7 @@ h3.text-center {
 .navbar-toggle {
   -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    background-color: #DDDDDD/*#BBBFCC;*/
+    background-color: #EDfCfC/*#DDDDDD*//*#BBBFCC;*/
 }
 
 .navbar-toggle {

@@ -34,7 +34,7 @@ abstract class View
     echo "<div class='col-xs-1'></div>";
     ?>
     <!-- <div class='col-xs-10 center-column' ng-style="{height: iframeHeight-100 + 'px', overflow: 'scroll'}"> -->
-    <div class='col-xs-10' ng-style="bootstrapCenterColumnStyle">
+    <div id='mainCenterColumn' class='col-xs-10' ng-style="bootstrapCenterColumnStyle">
     <?php
   }
   abstract public function render();

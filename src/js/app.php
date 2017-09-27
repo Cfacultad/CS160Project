@@ -41,4 +41,10 @@ app.directive('resizable', function($window) {
         }
       });
 
+app.directive('helloWorld', function(){
+  return {
+    template: 'Hello World'
+  }
+});
+
 </script>

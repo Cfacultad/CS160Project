@@ -4,6 +4,7 @@ app.controller('ShopController', ['$scope', 'data', function($scope, data) {
   $scope.message = data.message;
   $scope.views = data.views;
 	$scope.iframeHeight = window.innerHeight;
+	console.log($("#mainCenterColumn").height());
 	$scope.shopStyle = {
 		"margin-top" : "40px"
   };
