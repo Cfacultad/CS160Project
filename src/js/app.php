@@ -21,6 +21,10 @@ app.config(function($routeProvider, $locationProvider) {
         templateUrl : "src/js/partials/checkOut.html",
         controller : "CheckOutController"
     })
+    .when("/trackPackage", {
+        templateUrl : "src/js/partials/trackPackage.html",
+        controller : "TrackPackageController"
+    })
     .otherwise({
         redirectTo: '/'
     });

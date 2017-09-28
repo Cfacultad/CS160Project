@@ -48,6 +48,7 @@ abstract class View
       <script src="/src/js/controllers/ShopController.js"></script>
       <script src="/src/js/controllers/ShoppingCartController.js"></script>
       <script src="/src/js/controllers/CheckOutController.js"></script>
+      <script src="/src/js/controllers/TrackPackageController.js"></script>
       <!-- The next two lines closes out the divs from the constructor -->
       </div>
       <div class='col-xs-1'></div>

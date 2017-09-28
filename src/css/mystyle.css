@@ -65,3 +65,8 @@ html {
 .leftPadding{
   padding-left: 30px;
 }
+
+#map {
+  height: 400px;
+  width: 100%;
+}

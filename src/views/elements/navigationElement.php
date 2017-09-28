@@ -24,7 +24,7 @@
         <li ng-class="{active: isActive('/shop')}"><a href="/#!/shop" target="_self">Shop</a></li>
         <li ng-class="{active: isActive('/shoppingCart')}"><a href="/#!/shoppingCart" target="_self">Shopping Cart</a></li>
         <li ng-class="{active: isActive('/checkOut')}"><a href="/#!/checkOut" target="_self">Check Out</a></li>
-
+        <li ng-class="{active: isActive('/trackPackage')}"><a href="/#!/trackPackage" target="_self">Track A Package</a></li>
 
       </ul>
     </div>
