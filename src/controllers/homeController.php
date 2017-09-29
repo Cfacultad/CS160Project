@@ -17,6 +17,8 @@ class HomeController extends Controller {
     $homeModel = new M\HomeModel();
     $data['views'] = $homeModel->getData($config, "home");
     $data['config'] = $config;
+    /* The below indices are not used, I am just showing that you can add anything to
+      this array. Notice we did not have to declare the $data array before use! */
     $data['title'] = "Organic Food Store"; // This is nothing important, in fact probably not used, but once we are coding on the client side, we can use this as a test to see if the array was passed correctly into AngularJS
     $data['message'] = "Welcome to Oraganic Food Store"; // Also a testing index
     $homeView = new V\HomeView($data);

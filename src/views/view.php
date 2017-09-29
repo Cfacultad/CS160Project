@@ -18,41 +18,37 @@ abstract class View
     ?>
     <!DOCTYPE html>
     <html>
-    <?php
-    $header = new E\HeaderElement();
-    $header->render($this->data);
-    ?>
-    <body ng-app='myApp' ng-controller='MainController' ng-style="backgroundStyle" ng-cloak>
-    <?php
-    include('./src/js/app.php');
-    //wow super important, controller is imported under close function here in view.php div is closed off there too
-    ?>
-    <!-- <div ng-controller='MainController' ng-style="myObj" id="mainCSS"> -->
-    <?php
-    $navigation = new E\NavigationElement();
-    $navigation->render($this->data);
-    echo "<div class='col-xs-1'></div>";
-    ?>
-    <!-- <div class='col-xs-10 center-column' ng-style="{height: iframeHeight-100 + 'px', overflow: 'scroll'}"> -->
-    <div id='mainCenterColumn' class='col-xs-10' ng-style="bootstrapCenterColumnStyle">
-    <?php
+
+      <?php
+        $header = new E\HeaderElement();
+        $header->render($this->data);
+      ?>
+
+      <body ng-app='myApp' ng-controller='MainController' ng-style="backgroundStyle" ng-cloak>
+
+      <?php
+        include('./src/js/app.php');
+        $navigation = new E\NavigationElement();
+        $navigation->render($this->data);
+      ?>
+
+      <div id='mainCenterColumn' ng-style="bootstrapCenterColumnStyle">
+
+      <?php
   }
   abstract public function render();
 
   public function close(){
     ?>
-      <!-- Controllers -->
-      <script src="/src/js/controllers/MainController.js"></script>
-      <script src="/src/js/controllers/HomeController.js"></script>
-      <script src="/src/js/controllers/NavController.js"></script>
-      <script src="/src/js/controllers/ShopController.js"></script>
-      <script src="/src/js/controllers/ShoppingCartController.js"></script>
-      <script src="/src/js/controllers/CheckOutController.js"></script>
-      <script src="/src/js/controllers/TrackPackageController.js"></script>
-      <!-- The next two lines closes out the divs from the constructor -->
-      </div>
-      <div class='col-xs-1'></div>
-    </body>
+        <!-- AngularJS Controllers -->
+        <script src="/src/js/controllers/MainController.js"></script>
+        <script src="/src/js/controllers/HomeController.js"></script>
+        <script src="/src/js/controllers/NavController.js"></script>
+        <script src="/src/js/controllers/ShopController.js"></script>
+        <script src="/src/js/controllers/ShoppingCartController.js"></script>
+        <script src="/src/js/controllers/CheckOutController.js"></script>
+        <script src="/src/js/controllers/TrackPackageController.js"></script>
+      </body>
     </html>
     <?php
   }

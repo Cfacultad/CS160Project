@@ -16,6 +16,7 @@
           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
           <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.js"></script>
+          <!-- Min version doesn't have detailed error messages, so use angular.js during developement, then switch to the below angular.min.js when final version is ready. -->
           <!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script> -->
           <link rel="stylesheet" type="text/css" href="src/css/mystyle.css">
           <link rel="stylesheet" type="text/css" href="src/css/bootstrap-custom.css">

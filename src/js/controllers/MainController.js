@@ -24,6 +24,7 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
 // set background to a light teel color
 	$scope.backgroundStyle = {
 		"background-color" : "#c3f5f5"
+		// "border" : "none"
 	};
 
 	$scope.initializeWindowSize = function() {
@@ -39,6 +40,11 @@ app.controller('MainController', ['$scope', 'data', '$window', '$location', func
 		}
 		$("#mainCenterColumn").css("min-height", windowSizeMinusNavbar);
 		$("#mainCenterColumn").css("height", "auto");
+		$("#mainCenterColumn").css("margin-left", $window.innerWidth * 1/12);
+		$("#mainCenterColumn").css("margin-right", $window.innerWidth * 1/12);
+		$("#mainCenterColumn").css("padding-top", 1);
+		$("#mainCenterColumn").css("padding-left", 15);
+		$("#mainCenterColumn").css("padding-right", 15);
 	};
 
 	angular.element($window).bind("resize", function() {

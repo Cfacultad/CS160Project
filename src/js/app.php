@@ -45,6 +45,7 @@ app.directive('resizable', function($window) {
         }
       });
 
+// The below is not used, but it shows how to create a simple AngularJS directive. We'll only create a directive if we want to be fancy, otherwise we'll just stick to JavaScript for now.
 app.directive('helloWorld', function(){
   return {
     template: 'Hello World'
